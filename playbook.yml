@@ -1,0 +1,12 @@
+---
+- name: Deploying the ELK
+  hosts: all
+  tasks:
+    - name: Copying the apk to client
+      copy:
+        src: ./build/app/outputs/flutter-apk
+        dest: ./
+    - name: Start the emulator
+      shell: ~/Library/Android/sdk/emulator/emulator -avd Pixel_3a_API_33_arm64-v8a &
+    - name: Starting the application
+      shell: adb install ./app-release.apk
