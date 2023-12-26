@@ -10,6 +10,7 @@
     - name: Start the emulator #not needed if emulator is already up
       shell: ~/Library/Android/sdk/emulator/emulator -avd Pixel_7_Pro_API_34 &
     - name: Sleep for avd to Start
-      shell: sleep 20s #no need if avd starts instantly
+      wait_for: 
+        timeout: 30 #no need if avd starts instantly
     - name: Starting the application
       shell: adb install ./app-release.apk
