@@ -1,6 +1,7 @@
 ---
 - name: Deploying the ELK
-  hosts: all
+  hosts: localhost
+  connection: local 
   tasks:
     - name: Copying the apk to client
       copy:
