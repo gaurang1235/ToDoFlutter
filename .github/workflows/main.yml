@@ -36,13 +36,12 @@ jobs:
     steps:
     - name: Set up Firebase
       uses: w9jds/firebase-action@master
-      with:
-        args: login:ci
       env:
         FIREBASE_TOKEN: 1//0gHIDoOW3gDmpCgYIARAAGBASNgF-L9Ir2y8O2PML33O57ppgTj5Ty1wwgL7B3elYD22MXFx8P0uk9_qLzNaaGhulq7dRrpoMrQ
 
     - name: Deploy to Firebase
       run: |
-        cd path/to/your/flutter/project
-        firebase deploy --only hosting
+        cd /home/runner/work/ToDoFlutter/ToDoFlutter
+        firebase deploy --token 1//0gHIDoOW3gDmpCgYIARAAGBASNgF-L9Ir2y8O2PML33O57ppgTj5Ty1wwgL7B3elYD22MXFx8P0uk9_qLzNaaGhulq7dRrpoMrQ
+
         
