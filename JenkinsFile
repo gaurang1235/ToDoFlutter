@@ -1,0 +1,25 @@
+pipeline {
+	agent any
+	environment{
+	    PATH = "/opt/homebrew/bin:/usr/local/bin/docker:$PATH"
+	}
+
+    stages {
+        stage('Git Pull') {
+            steps {
+				git url: 'https://github.com/gaurang1235/ToDoFlutter.git',
+				branch: 'main'
+            }
+        }
+        stage('Building apk') {
+            steps {
+                sh 'flutter build apk'
+            }
+        }
+        stage('Deploy and Run APK'){
+            steps {
+                sh 'ansible-playbook -i inventory playbook.yml'
+            }
+        }
+    }
+}
