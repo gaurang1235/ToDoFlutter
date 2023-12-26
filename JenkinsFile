@@ -1,7 +1,7 @@
 pipeline {
 	agent any
 	environment{
-	    PATH = "/Library/Android/sdk/tools:/opt/homebrew/bin:/usr/local/bin/docker:/Users/gaurang/Development/Flutter/flutter/bin:/Library/Android/sdk/platform-tools:$PATH"
+	    PATH = "/Users/gaurang/Library/Android/sdk/tools:/opt/homebrew/bin:/usr/local/bin/docker:/Users/gaurang/Development/Flutter/flutter/bin:/Users/gaurang/Library/Android/sdk/platform-tools:$PATH"
 	}
 
     stages {
