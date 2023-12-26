@@ -43,14 +43,12 @@ jobs:
         path: build/app/outputs/flutter-apk/
 
     - name: Set up Firebase
-      uses: w9jds/firebase-action@master
-      with:
-        args: login:ci
+      run: echo $FIREBASE_TOKEN > $HOME/firebase_token
       env:
-        FIREBASE_TOKEN: 1//0gHIDoOW3gDmpCgYIARAAGBASNgF-L9Ir2y8O2PML33O57ppgTj5Ty1wwgL7B3elYD22MXFx8P0uk9_qLzNaaGhulq7dRrpoMrQ
-
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+    
     - name: Deploy to Firebase
       run: |
         cd build/app/outputs/flutter-apk/
-        firebase deploy --only android
+        firebase deploy --only android --token $(cat $HOME/firebase_token)
 
