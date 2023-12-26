@@ -36,30 +36,20 @@ jobs:
     needs: build
 
     steps:
-      - name: Download artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: app-release
-          path: build/app/outputs/flutter-apk/
+    - name: Download artifacts
+      uses: actions/download-artifact@v2
+      with:
+        name: app-release
+        path: build/app/outputs/flutter-apk/
 
-      - name: Set up Firebase
-        run: |
-          echo "Downloading and installing Firebase CLI..."
-          curl -sL https://firebase.tools | bash
+    - name: Set up Firebase
+      run: |
+        echo "Downloading and installing Firebase CLI..."
+        curl -sL https://firebase.tools | bash
 
-      - name: Authenticate with Firebase
-        run: |
-          echo $FIREBASE_TOKEN | firebase login --no-localhost --token -
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-
-      - name: Configure Firebase
-        run: |
-          cd build/app/outputs/flutter-apk/
-          firebase use --add $FIREBASE_PROJECT_ID
-
-      - name: Deploy to Firebase
-        run: |
-          firebase deploy --only android
-        env:
-          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+    - name: Deploy to Firebase
+      run: |
+        cd build/app/outputs/flutter-apk/
+        firebase deploy --only android --token $FIREBASE_TOKEN
+    env:
+      FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
