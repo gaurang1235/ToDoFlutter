@@ -40,6 +40,9 @@ jobs:
         pwd
         ls -al
     - name: Deploy to Firebase
+      run: |
+        pwd
+        ls -al
       uses: w9jds/firebase-action@master
       with:
         args: deploy --only hosting  # Adjust this line based on your deployment needs
