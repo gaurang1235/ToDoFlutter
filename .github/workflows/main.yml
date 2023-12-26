@@ -34,7 +34,7 @@ jobs:
       uses: w9jds/firebase-action@master
       with:
         args: login
-        secrets: 1//0gHIDoOW3gDmpCgYIARAAGBASNgF-L9Ir2y8O2PML33O57ppgTj5Ty1wwgL7B3elYD22MXFx8P0uk9_qLzNaaGhulq7dRrpoMrQ
+        secrets: FIREBASE_TOKEN
 
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
