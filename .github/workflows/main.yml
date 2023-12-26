@@ -43,12 +43,13 @@ jobs:
         path: build/app/outputs/flutter-apk/
 
     - name: Set up Firebase
-      run: echo $FIREBASE_TOKEN > $HOME/firebase_token
-      env:
-        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-    
+      run: |
+        echo "Downloading and installing Firebase CLI..."
+        curl -sL https://firebase.tools | bash
+
     - name: Deploy to Firebase
       run: |
         cd build/app/outputs/flutter-apk/
-        firebase deploy --only android --token $(cat $HOME/firebase_token)
-
+        firebase deploy --only android --token $FIREBASE_TOKEN
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
