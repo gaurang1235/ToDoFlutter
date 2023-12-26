@@ -33,7 +33,7 @@ jobs:
     - name: Set up Firebase
       uses: w9jds/firebase-action@master
       with:
-        args: login
+        args: login:ci
       env:
         FIREBASE_TOKEN: 1//0gHIDoOW3gDmpCgYIARAAGBASNgF-L9Ir2y8O2PML33O57ppgTj5Ty1wwgL7B3elYD22MXFx8P0uk9_qLzNaaGhulq7dRrpoMrQ
 
