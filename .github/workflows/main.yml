@@ -21,8 +21,8 @@ jobs:
     - name: Install Dependencies
       run: flutter pub get
 
-    - name: Build APK
-      run: flutter build web
+    - name: Build Web
+      run: flutter build web --release
 
   deploy:
     runs-on: ubuntu-latest
@@ -30,9 +30,9 @@ jobs:
     needs: build
 
     steps:
-    - name: Install Firebase CLI
-      run: npm install -g firebase-tools
-
-    - name: Deploy to Firebase (replace with your deployment steps)
-      run: |
-        firebase deploy --token 1//0gHIDoOW3gDmpCgYIARAAGBASNgF-L9Ir2y8O2PML33O57ppgTj5Ty1wwgL7B3elYD22MXFx8P0uk9_qLzNaaGhulq7dRrpoMrQ
+    - name: Deploy to Firebase
+      uses: w9jds/firebase-action@master
+      with:
+        args: deploy --only hosting  # Adjust this line based on your deployment needs
+      env:
+        FIREBASE_TOKEN: 1//0gHIDoOW3gDmpCgYIARAAGBASNgF-L9Ir2y8O2PML33O57ppgTj5Ty1wwgL7B3elYD22MXFx8P0uk9_qLzNaaGhulq7dRrpoMrQ
