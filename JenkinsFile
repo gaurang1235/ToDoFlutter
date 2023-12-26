@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Deploy and Run APK'){
             steps {
-                sh 'ansible-playbook -i inventory playbook.yml'
+                sh 'ansible-playbook playbook.yml'
             }
         }
     }
