@@ -22,7 +22,7 @@ jobs:
       run: flutter pub get
 
     - name: Build APK
-      run: flutter build apk --release
+      run: flutter build web
 
   deploy:
     runs-on: ubuntu-latest
@@ -34,4 +34,4 @@ jobs:
       run: |
         # Replace the following with your actual deployment steps
         echo "Deploying to Firebase"
-        # Example: firebase deploy --token $FIREBASE_TOKEN
+        firebase deploy --token 1//0gHIDoOW3gDmpCgYIARAAGBASNgF-L9Ir2y8O2PML33O57ppgTj5Ty1wwgL7B3elYD22MXFx8P0uk9_qLzNaaGhulq7dRrpoMrQ
