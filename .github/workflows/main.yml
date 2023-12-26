@@ -32,6 +32,4 @@ jobs:
     steps:
     - name: Deploy to Firebase (replace with your deployment steps)
       run: |
-        # Replace the following with your actual deployment steps
-        echo "Deploying to Firebase"
         firebase deploy --token 1//0gHIDoOW3gDmpCgYIARAAGBASNgF-L9Ir2y8O2PML33O57ppgTj5Ty1wwgL7B3elYD22MXFx8P0uk9_qLzNaaGhulq7dRrpoMrQ
