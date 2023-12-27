@@ -13,7 +13,7 @@ pipeline {
         }
 	stage('Testing') {
             steps {
-                sh 'echo TestingFlutterApp' #use testing steps here
+                sh 'echo TestingFlutterApp'
             }
         }
         stage('Building apk') {
